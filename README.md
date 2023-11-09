@@ -9,6 +9,7 @@
 
 <h2 align="center">
   <span style="font-size: 32px;">
+    English | [简体中文]()
 </span>
 </h2>
 
