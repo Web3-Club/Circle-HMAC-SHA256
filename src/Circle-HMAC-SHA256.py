@@ -2,13 +2,13 @@
 import hashlib, hmac, json, os, sys, time
 from datetime import datetime
 
-# 密钥参数 推荐环境变量
+# Keep secret parameters in environment
 # circle_api_key = os.environ.get("CIRCLE_API_KEY")
 circle_api_key = "NEW_API_KEY:7e3ad84e7046d3c9a42e57ac5e65024c:8******************************3"
 key_type, key_id, key_secret = circle_api_key.split(':')
 
 
-host = "api.circle.com"  # Circle API的主机名 
+host = "api.circle.com"  # Hostname of circle api
 APIService = "/v1/w3s"
 CircleService = "/users/token"
 endpoint = "https://" + host + APIService + CircleService
@@ -17,9 +17,9 @@ algorithm = "Circle-HMAC-SHA256"
 timestamp = int(time.time())
 date = datetime.utcfromtimestamp(timestamp).strftime("%Y-%m-%d")
 
-params = {"userId": "test_user"}  # 根据实际API调用设置参数
+params = {"userId": "test_user"}  # Set your request parameters here
 
-# ************* 步骤 1：拼接规范请求串 *************
+# ************* Step 1. Splicing request strings *************
 http_request_method = "POST"
 
 CircleQueryString = ""
@@ -38,7 +38,7 @@ CircleRequest = (http_request_method + "\n" +
 
 print(f"CircleRequest:{CircleRequest}\n")
 
-# ************* 步骤 2：拼接待签名字符串 *************
+# ************* Step 2. Spell out signature strings *************
 service = CircleService.replace("/", "")
 credential_scope = date + "/" + service + "/" + "circle_request"
 
@@ -50,13 +50,13 @@ string_to_sign = (algorithm + "\n" +
                   hashed_CircleRequest)
 print(f"string_to_sign:{string_to_sign}\n")
 
-# ************* 步骤 3：计算签名 *************
+# ************* Step 3. Calculate signing key *************
 
-# 计算签名摘要函数
+# Calculate the signature digest function
 def sign(key, msg):
     return hmac.new(key, msg.encode("utf-8"), hashlib.sha256).digest()
 
-# 根据Circle的API_KEY格式，这里使用key_secret部分进行签名
+# sign by using key_secret according to Circle's API_KEY format
 secret_date = sign(("Circle" + key_secret).encode("utf-8"), date)
 secret_service = sign(secret_date, service)
 secret_signing = sign(secret_service, "circle_request")
@@ -64,14 +64,14 @@ signature = hmac.new(secret_signing, string_to_sign.encode("utf-8"), hashlib.sha
 
 print(f"signature:{signature}\n")
 
-# ************* 步骤 4：拼接 Authorization *************
+# ************* Step 4. Constructing the Authentication Header*************
 authorization = (algorithm + " " +
                  "Credential=" + key_id + "/" + credential_scope + ", " +
                  "SignedHeaders=" + signed_headers + ", " +
                  "Signature=" + signature)
 print(f"authorization:{authorization}\n")
 
-# 构建Curl命令
+# build curl command
 print(f"""curl --request POST \\
      --url {endpoint} \\
      --header 'Authorization: {authorization}' \\
