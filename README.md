@@ -7,11 +7,11 @@
 
 
 
-<h2 align="center">
+<h5 align="center">
   <span style="font-size: 32px;">
-    English | [简体中文](https://github.com/Web3-Club/Circle-HMAC-SHA256/blob/main/README_CN.md)
+    English | [简体中文] (https://github.com/Web3-Club/Circle-HMAC-SHA256/blob/main/README_CN.md)
 </span>
-</h2>
+</h5>
 
 ## Introductory
 
