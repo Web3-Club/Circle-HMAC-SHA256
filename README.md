@@ -1,6 +1,7 @@
 
 <h1 align="center">
-  <span style="font-size: 32px;">API Security Hardening Solution based on Circle Programmable Wallet
+  <span style="font-size: 32px;">API Security Hardening Solution <br>
+    based on Circle Programmable Wallet
 </span>
 </h1>
 
