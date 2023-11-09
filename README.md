@@ -5,6 +5,14 @@
 </span>
 </h1>
 
+
+
+<h2 align="center">
+  <span style="font-size: 32px;">
+    English | [简体中文](https://github.com/Web3-Club/Circle-HMAC-SHA256/blob/main/README_CN.md)
+</span>
+</h2>
+
 ## Introductory
 
 The Web3 project is at the forefront of fintech innovation in the rapidly evolving world of digital currencies and decentralized finance.
