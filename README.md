@@ -1,5 +1,5 @@
 # API Security Hardening Solution based on Circle Programmable Wallet
-## introductory
+## Introductory
 
 The Web3 project is at the forefront of fintech innovation in the rapidly evolving world of digital currencies and decentralized finance.
 
