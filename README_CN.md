@@ -2,7 +2,6 @@
   <span style="font-size: 32px;">
     
  基于 Circle 可编程钱包 的 API安全加固方案
-    
 </span>
 </h1>
 
@@ -10,7 +9,7 @@
 <h5 align="center">
   <span style="font-size: 32px;">
     
-  English | [简体中文](https://github.com/Web3-Club/Circle-HMAC-SHA256/blob/main/README_CN.md)
+  [English](https://github.com/Web3-Club/Circle-HMAC-SHA256/README.md) | 简体中文
     
 </span>
 </h5>
